@@ -40,7 +40,7 @@
                 <div class="d-flex">
                     <div class="font-italic">작성자 : ${reply.user.username}&nbsp;</div>
                     <c:if test="${reply.user.id==principal.user.id}">
-                        <button type="button" class="badge" onClick="index.replyDelete(${board.id}, ${reply.id});">삭제</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm" onClick="index.replyDelete(${board.id}, ${reply.id});">삭제</button>
                     </c:if>
                 </div>
             </li>
@@ -50,11 +50,14 @@
 
 
   </form>
-  <button id="btn-list"  class="btn btn-default">목록</button>
-  <c:if test="${board.user.id == principal.user.id}">
-    <button id="btn-uptForm" class="btn btn-warning">수정</button>
-    <button id="btn-delete" class="btn btn-danger">삭제</button>
-  </c:if>
+
+  <div >
+      <button id="btn-list"  class="btn btn-secondary">목록</button>
+      <c:if test="${board.user.id == principal.user.id}">
+        <button id="btn-uptForm" class="btn btn-warning">수정</button>
+        <button id="btn-delete" class="btn btn-danger">삭제</button>
+      </c:if>
+  </div>
 
 </div>
 <script type="text/javascript">
