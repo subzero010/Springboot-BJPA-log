@@ -21,7 +21,7 @@
 <script type="text/javascript">
       $('.summernote').summernote({
         tabsize: 2,
-        height: 300,
+        height: 300 /*,
         toolbar: [
           ['style', ['style']],
           ['font', ['bold', 'underline', 'clear']],
@@ -30,7 +30,7 @@
           ['table', ['table']],
           ['insert', ['link', 'picture', 'video']],
           ['view', ['fullscreen', 'codeview', 'help']]
-        ]
+        ] */
       });
     let index = {
         init: function(){
