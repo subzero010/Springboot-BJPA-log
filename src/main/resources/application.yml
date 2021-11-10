@@ -1,6 +1,42 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
 spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+      enabled: false
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/blog?serverTimezone=Asia/Seoul
     username: root
-    password: root1234
+    password: 1234
+
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      use-new-id-generator-mappings: false
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
+
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+
+#    open-in-view: true  LAZY로딩을 해도 영속성을 프리젠테이션 계층까지 가져와서, 하위 테이블 조회가 가능하다.
+#                        Controller까지 영속성컨택스트가 유지된다.  (45강)
+#      ddl-auto: create (restart 할때마다 테이블을 새로 생성하겠다) , update(기존테이블에 추가), none
+#        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+#         -> entity를 만들때 변수명 그대로 table field로 만들어 준다는 의미
+# use-new-id-generator-mappings: false (jpa의 기본 넘버링 전략을 따라가지 않는다. 프로젝트에 연결된 넘버링을 따른다)
